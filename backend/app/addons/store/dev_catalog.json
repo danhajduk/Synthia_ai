@@ -9,7 +9,7 @@
       "id": "visuals",
       "name": "Visuals Engine",
       "description": "Local visuals engine with pluggable renderers (weather, avatar, general).",
-      "repo": "https://github.com/YOUR_ORG/synthia-addon-visuals",
+      "repo": "https://github.com/danhajduk/synthia-addon-visuals",
       "ref": "main",
       "path": ".",
       "types": ["action", "ui"],

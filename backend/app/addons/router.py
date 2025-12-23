@@ -214,3 +214,9 @@ def api_frontend_routes() -> FrontendRoutesResponse:
         header=header_widgets,
         sidebar=sidebar_items,
     )
+
+from .installed_store import get_installed_addons
+
+@router.get("/debug/installed-addons")
+def debug_installed_addons():
+    return {"installed": get_installed_addons()}

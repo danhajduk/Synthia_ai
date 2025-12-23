@@ -21,3 +21,13 @@ scripts/
 
 # Runtime logs
 ./backend.log
+
+# --- External addons (dev + store-installed) ---
+/addons/*
+
+# Keep the folder itself
+!/addons/.gitkeep
+!/addons/__init__.py
+
+# --- Generated frontend addon code ---
+/frontend/src/addons/*

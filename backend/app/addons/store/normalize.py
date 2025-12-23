@@ -1,21 +1,20 @@
+from __future__ import annotations
+
 from .models import CatalogAddon
 
 
 def normalize_catalog_entry(addon: CatalogAddon) -> CatalogAddon:
-    """
-    Normalize a catalog addon entry so the rest of the system
-    never has to care about missing defaults.
-    """
-
     # Defaults
-    if addon.ref is None:
+    if not addon.ref:
         addon.ref = "main"
-
-    if addon.path is None:
+    if not addon.path:
         addon.path = "."
 
-    # Basic security guard
-    if ".." in addon.path.replace("\\", "/"):
-        raise ValueError(f"Invalid addon path: {addon.path}")
+    # Basic path safety (avoid traversal)
+    norm = addon.path.replace("\\", "/")
+    if norm.startswith("/") or norm.startswith("~") or "://" in norm:
+        raise ValueError(f"Invalid addon path (must be repo-relative): {addon.path}")
+    if ".." in norm.split("/"):
+        raise ValueError(f"Invalid addon path (no '..' allowed): {addon.path}")
 
     return addon

@@ -116,16 +116,7 @@ def get_addon(addon_id: str) -> AddonManifest | None:
 def list_addons() -> list[AddonManifest]:
     return list(get_registry().addons.values())
 
-
-from typing import List
-from pydantic import BaseModel
-
-# If you already have AddonLoadError defined, don't duplicate it.
-# Otherwise, add this small model:
-
-
-
-# Global list of load errors (optional; stays empty unless you populate it)
+# Global list of load errors (optional; stays empty unless populated)
 _LOAD_ERRORS: List[AddonLoadError] = []
 
 
@@ -134,6 +125,6 @@ def list_errors() -> List[AddonLoadError]:
     Return any manifest load errors collected during registry loading.
 
     For now, this will just return an empty list unless you start appending
-    to _LOAD_ERRORS in load_addon_registry().
+    to _LOAD_ERRORS in `load_addon_registry()`.
     """
     return list(_LOAD_ERRORS)
