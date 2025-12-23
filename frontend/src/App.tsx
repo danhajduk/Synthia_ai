@@ -1,5 +1,5 @@
-// src/App.tsx
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/layout/Header";
 import Sidebar from "./components/layout/Sidebar";
@@ -7,8 +7,8 @@ import Footer from "./components/layout/Footer";
 
 import { buildNav, type RegisteredAddon } from "./navigation/navRegistry";
 import { AddonsRegistryPage } from "./pages/AddonsRegistryPage";
+import { useAddonMainRouteElements } from "./addons/useAddonMainRoutes";
 
-// simple home page placeholder
 function HomePage() {
   return (
     <div className="p-4">
@@ -24,6 +24,9 @@ const registeredAddons: RegisteredAddon[] = [];
 const navItems = buildNav(registeredAddons);
 
 function App() {
+  // ✅ hooks must be called INSIDE a component
+  const { routes: addonMainRoutes, ready } = useAddonMainRouteElements();
+
   return (
     <BrowserRouter>
       <div className="app-shell">
@@ -36,8 +39,25 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/addons" element={<AddonsRegistryPage />} />
-              {/* fallback */}
-              <Route path="*" element={<Navigate to="/" replace />} />
+
+              {/* While loading addons, keep /addons/* from falling into "*" */}
+              {!ready && (
+                <Route
+                  path="/addons/*"
+                  element={
+                    <div className="p-4 text-sm text-gray-600">Loading addons…</div>
+                  }
+                />
+              )}
+
+              {/* Once ready, register addon pages */}
+              {ready && addonMainRoutes}
+
+              {/* Debug-friendly fallback */}
+              <Route
+                path="*"
+                element={<div className="p-4 text-sm text-gray-600">Not found</div>}
+              />
             </Routes>
           </main>
 

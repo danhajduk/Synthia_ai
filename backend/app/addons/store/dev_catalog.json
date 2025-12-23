@@ -1,0 +1,20 @@
+{
+  "schema": "synthia.addons.catalog.v1",
+  "generated_at": "2025-12-23T00:00:00Z",
+  "catalog_name": "Synthia Dev Catalog (Local)",
+  "catalog_id": "dev-local",
+  "signature": {},
+  "addons": [
+    {
+      "id": "visuals",
+      "name": "Visuals Engine",
+      "description": "Local visuals engine with pluggable renderers (weather, avatar, general).",
+      "repo": "https://github.com/YOUR_ORG/synthia-addon-visuals",
+      "ref": "main",
+      "path": ".",
+      "types": ["action", "ui"],
+      "min_core_version": "0.4.0",
+      "max_core_version": "0.9.99"
+    }
+  ]
+}

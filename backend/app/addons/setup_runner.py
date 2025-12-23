@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .frontend_linker import sync_frontend_addons
 
 import importlib.util
 import logging
@@ -75,6 +76,26 @@ def _write_setup_stamp(addon_dir: Path, payload: Dict[str, Any]) -> None:
     p.write_text(json.dumps(payload, indent=2))
 
 
+def _sync_frontend_links_safe() -> str:
+    """
+    Try to sync frontend addon symlinks. Never raises.
+    Returns a short message (for stdout).
+    """
+    try:
+        project_root = DEFAULT_ADDONS_DIR.parent
+        frontend_addons_dir = project_root / "frontend" / "src" / "addons"
+
+        logs = sync_frontend_addons(
+            addons_dir=DEFAULT_ADDONS_DIR,
+            frontend_addons_dir=frontend_addons_dir,
+        )
+        for line in logs:
+            logger.info(line)
+
+        return "frontend symlinks synced"
+    except Exception as exc:
+        logger.warning("Frontend addon linking failed: %r", exc)
+        return f"frontend symlinks sync failed: {exc!r}"
 def run_addon_setup(
     manifest: AddonManifest,
     *,
@@ -95,6 +116,8 @@ def run_addon_setup(
           * If it has attribute `.success` (bool) → use that
           * If it has attribute `.message` (str) → put into stdout on success, stderr on failure
           * If it returns None → treat as success
+      - On success (and also on cached skip), sync frontend addon symlinks:
+          frontend/src/addons/<addon_id> -> addons/<addon_id>/frontend
 
     Returns:
       - AddonSetupResult if setup is configured
@@ -108,6 +131,27 @@ def run_addon_setup(
     addon_dir = _get_addon_dir(manifest)
     cfg = config or {}
 
+    def _sync_frontend_links_safe() -> str:
+        """
+        Sync frontend addon symlinks. Never raises.
+        Returns a short message suitable for stdout.
+        """
+        try:
+            project_root = DEFAULT_ADDONS_DIR.parent
+            frontend_addons_dir = project_root / "frontend" / "src" / "addons"
+
+            logs = sync_frontend_addons(
+                addons_dir=DEFAULT_ADDONS_DIR,
+                frontend_addons_dir=frontend_addons_dir,
+            )
+            for line in logs:
+                logger.info(line)
+
+            return "frontend symlinks synced"
+        except Exception as exc:
+            logger.warning("Frontend addon linking failed: %r", exc)
+            return f"frontend symlinks sync failed: {exc!r}"
+
     # Setup caching (skip if requirements unchanged and last setup succeeded)
     req_hash = _requirements_hash(addon_dir)
     stamp = _read_setup_stamp(addon_dir)
@@ -117,10 +161,13 @@ def run_addon_setup(
             "Setup already satisfied for addon '%s' (requirements unchanged); skipping.",
             manifest.id,
         )
+
+        link_msg = _sync_frontend_links_safe()
+
         return AddonSetupResult(
             success=True,
             exit_code=0,
-            stdout="setup skipped (cached)",
+            stdout=f"setup skipped (cached)\n{link_msg}",
             stderr="",
         )
 
@@ -280,10 +327,12 @@ def run_addon_setup(
                 },
             )
 
+            link_msg = _sync_frontend_links_safe()
+
             return AddonSetupResult(
                 success=True,
                 exit_code=0,
-                stdout=message or "",
+                stdout=(message or "") + ("\n" + link_msg if link_msg else ""),
                 stderr="",
             )
         else:

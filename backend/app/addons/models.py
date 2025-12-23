@@ -1,3 +1,4 @@
+#backend/app/addons/models.py
 from __future__ import annotations
 
 from enum import Enum
@@ -5,6 +6,42 @@ from typing import List, Optional, Literal  # 🔹 added Literal
 
 from pydantic import BaseModel, Field
 
+
+CATALOG_SCHEMA_V1 = "synthia.addons.catalog.v1"
+
+
+class CatalogAddon(BaseModel):
+    id: str
+    name: str
+    description: Optional[str] = None
+
+    repo: HttpUrl
+
+    # Optional in input, REQUIRED after normalization
+    ref: Optional[str] = None
+    path: Optional[str] = None
+
+    types: List[str]
+
+    min_core_version: str
+    max_core_version: Optional[str] = None
+
+    class Config:
+        extra = "allow"
+
+
+class CatalogDocument(BaseModel):
+    schema: Literal["synthia.addons.catalog.v1"]
+
+    generated_at: Optional[str] = None
+    catalog_name: Optional[str] = None
+    catalog_id: Optional[str] = None
+    signature: Optional[dict] = None
+
+    addons: List[CatalogAddon]
+
+    class Config:
+        extra = "allow"
 
 # -----------------------------
 # Enums
@@ -89,25 +126,23 @@ class BackendManifest(BaseModel):
 # Root addon manifest
 # -----------------------------
 
+class CoreCompatibility(BaseModel):
+    min_version: Optional[str] = None
+    max_version: Optional[str] = None
+
+class AddonAssets(BaseModel):
+    # Repo-relative path, e.g. "frontend/img/icon.svg"
+    icon: Optional[str] = None
+
 class AddonManifest(BaseModel):
     """
     Top-level manifest for a Synthia addon.
 
     Mirrors the manifest.json structure found under /addons/<addon-id>/manifest.json.
-
-    Example:
-
-    {
-      "id": "hello-llm",
-      "name": "Hello LLM Provider",
-      "version": "0.1.0",
-      "description": "Demo LLM provider that just echoes text back.",
-      "types": ["llm"],
-      "dependsOn": [],
-      "frontend": { ... },
-      "backend": { ... }
-    }
     """
+
+    # (Optional but recommended) Manifest schema identifier
+    schema: Optional[str] = None  # e.g. "synthia.addon.manifest.v1"
 
     id: str
     name: str
@@ -121,8 +156,29 @@ class AddonManifest(BaseModel):
     # Other addons this one depends on (by ID)
     dependsOn: List[str] = Field(default_factory=list)
 
+    # --- New repo-owned metadata ---
+    author: Optional[str] = None
+    license: Optional[str] = None
+    homepage: Optional[str] = None
+    docs: Optional[str] = None
+    tags: List[str] = Field(default_factory=list)
+
+    # Core compatibility (repo is source of truth)
+    core: Optional[CoreCompatibility] = None
+
+    # Assets (icon path, etc.)
+    assets: Optional[AddonAssets] = None
+
+    # Deprecation
+    deprecated: bool = False
+    replaced_by: Optional[str] = None
+
     frontend: Optional[FrontendManifest] = None
     backend: Optional[BackendManifest] = None
+
+    class Config:
+        # IMPORTANT: allow unknown fields so we don’t break older/newer manifests.
+        extra = "allow"
 
 
 # -----------------------------
