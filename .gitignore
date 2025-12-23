@@ -20,4 +20,4 @@ infra/
 scripts/
 
 # Runtime logs
-backend.log
+./backend.log
