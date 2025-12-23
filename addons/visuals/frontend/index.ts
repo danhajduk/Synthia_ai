@@ -7,9 +7,13 @@ export const meta = {
 };
 
 export const routes = [
-  { path: meta.basePath, element: <VisualsPage /> },
+  {
+    path: meta.basePath,
+    element: <VisualsPage />,
+  },
 ];
 
+// Optional: if your core uses a navItem pattern
 export const navItem = {
   label: "Visuals",
   path: meta.basePath,
