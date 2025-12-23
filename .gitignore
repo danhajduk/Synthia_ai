@@ -1,9 +1,23 @@
+# Visuals addon runtime
+addons/visuals/runtime/
+
+# Python
 .venv/
 __pycache__/
 *.pyc
 
-frontend/node_modules/
-frontend/dist/
+# Node
+node_modules/
+dist/
+build/
 
-# Visuals addon runtime
-addons/visuals/runtime/
+# Env / secrets
+.env
+.env.*
+
+# Synthia infra & scripts (local / deployment)
+infra/
+scripts/
+
+# Runtime logs
+backend.log
