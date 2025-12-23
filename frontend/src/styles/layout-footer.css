@@ -1,0 +1,13 @@
+/* ===== Footer ===== */
+
+.app-footer {
+  height: 32px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #1f2937;
+  background: #020617;
+  font-size: 11px;
+  color: #64748b;
+}

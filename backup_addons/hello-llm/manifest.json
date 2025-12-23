@@ -1,0 +1,22 @@
+{
+  "id": "hello-llm",
+  "name": "Hello LLM Provider",
+  "version": "0.1.0",
+  "description": "Demo LLM provider that just echoes text back.",
+  "types": ["llm"],
+  "frontend": {
+    "basePath": "/addons/hello-llm",
+    "hasSettingsPage": true,
+    "showInSidebar": true,
+    "sidebarLabel": "Hello LLM",
+    "showOnFrontpage": true,
+    "summaryComponent": "HelloLlmSummary",
+    "summarySize": "sm"
+  },
+  "backend": {
+    "entry": "./backend/addon.py",
+    "setup": "./backend/setup.py",
+    "healthPath": "/health",
+    "requiresConfig": []
+  }
+}

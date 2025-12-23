@@ -1,0 +1,22 @@
+{
+  "id": "hello-voice",
+  "name": "Hello Voice Endpoint",
+  "version": "0.1.0",
+  "description": "Demo voice addon that pretends to listen on a fake device.",
+  "types": ["voice"],
+  "frontend": {
+    "basePath": "/addons/hello-voice",
+    "hasSettingsPage": true,
+    "showInSidebar": true,
+    "sidebarLabel": "Hello Voice",
+    "showOnFrontpage": true,
+    "summaryComponent": "HelloVoiceSummary",
+    "summarySize": "sm"
+  },
+  "backend": {
+    "entry": "./backend/addon.py",
+    "setup": "./backend/setup.py",
+    "healthPath": "/health",
+    "requiresConfig": ["deviceId"]
+  }
+}

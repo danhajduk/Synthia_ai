@@ -1,0 +1,16 @@
+{
+  "id": "hello-ui",
+  "name": "Hello UI Tool",
+  "version": "0.1.0",
+  "description": "Demo UI-only addon with a frontpage widget and a settings page.",
+  "types": ["ui"],
+  "frontend": {
+    "basePath": "/addons/hello-ui",
+    "hasSettingsPage": true,
+    "showInSidebar": true,
+    "sidebarLabel": "Hello UI",
+    "showOnFrontpage": true,
+    "summaryComponent": "HelloUiSummary",
+    "summarySize": "sm"
+  }
+}

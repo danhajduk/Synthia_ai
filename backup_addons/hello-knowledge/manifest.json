@@ -1,0 +1,22 @@
+{
+  "id": "hello-knowledge",
+  "name": "Hello Knowledge Source",
+  "version": "0.1.0",
+  "description": "Demo knowledge addon that exposes a fake inbox.",
+  "types": ["knowledge"],
+  "frontend": {
+    "basePath": "/addons/hello-knowledge",
+    "hasSettingsPage": true,
+    "showInSidebar": true,
+    "sidebarLabel": "Hello Knowledge",
+    "showOnFrontpage": true,
+    "summaryComponent": "HelloKnowledgeSummary",
+    "summarySize": "md"
+  },
+  "backend": {
+    "entry": "./backend/addon.py",
+    "setup": "./backend/setup.py",
+    "healthPath": "/health",
+    "requiresConfig": ["demoApiKey"]
+  }
+}

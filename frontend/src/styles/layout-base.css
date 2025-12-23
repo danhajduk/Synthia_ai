@@ -1,0 +1,42 @@
+/* ===== Global resets ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #020617; /* make even the page background dark */
+}
+
+/* prevent the outer page from scrolling */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #e5e7eb;
+  overflow: hidden; /* important: only inner main will scroll */
+}
+
+/* ===== App frame ===== */
+
+/* full-viewport flex row: [SIDEBAR][RIGHT COLUMN] */
+.app-shell {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+}
+
+/* right side: header + main + footer in a column */
+.app-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* so inner main can scroll */
+}
+

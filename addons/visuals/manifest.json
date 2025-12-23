@@ -1,0 +1,21 @@
+{
+  "id": "visuals",
+  "name": "Visuals Engine",
+  "version": "0.1.0",
+  "description": "Local visuals engine with pluggable renderers (weather, avatar, general).",
+  "types": ["action","ui"],
+  "frontend": {
+    "basePath": "/addons/visuals",
+    "hasSettingsPage": true,
+    "showInSidebar": true,
+    "sidebarLabel": "Visuals",
+    "showOnFrontpage": false
+  },
+  "backend": {
+    "entry": "./backend/addon.py",
+    "setup": "./backend/setup.py",
+    "healthPath": "/status",
+    "requiresConfig": []
+  }
+}
+ 

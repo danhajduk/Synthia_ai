@@ -1,0 +1,319 @@
+/* ===== Main content area ===== */
+
+.app-main {
+  flex: 1;
+  padding: 24px 32px 16px;
+  overflow: auto;
+  background: radial-gradient(circle at top center, #020617 0, #020617 40%, #020617 100%);
+}
+
+/* intentionally empty inside — we will add dashboard cards later */
+/* --- Addons registry layout --- */
+
+.addons-page {
+  padding: 24px;
+}
+
+.addons-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.addons-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.addons-subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.addons-message {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.addons-message-muted {
+  background: rgba(148, 163, 184, 0.08);
+  color: #9ca3af;
+}
+
+.addons-message-error {
+  background: rgba(248, 113, 113, 0.12);
+  color: #fecaca;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+}
+
+.addons-message-warning {
+  background: rgba(251, 191, 36, 0.08);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.addons-message-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.addons-error-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+}
+
+.addons-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+/* grid of cards */
+
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* individual addon card */
+
+.addon-card {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 14px 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.addon-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.addon-id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.addon-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.addon-version {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.addon-description {
+  font-size: 13px;
+  color: #e5e7eb;
+  margin: 4px 0;
+}
+
+.addon-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.addon-type-pill {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(55, 65, 81, 0.8);
+  color: #f9fafb;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.addon-type-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* status pill */
+
+.addon-status {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.addon-status-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.addon-status-ok {
+  background: rgba(34, 197, 94, 0.2);
+  color: #bbf7d0;
+}
+
+.addon-status-ui-only {
+  background: rgba(59, 130, 246, 0.2);
+  color: #bfdbfe;
+}
+
+.addon-status-backend-missing {
+  background: rgba(248, 113, 113, 0.25);
+  color: #fecaca;
+}
+
+.addon-status-needs-config {
+  background: rgba(251, 191, 36, 0.22);
+  color: #facc15;
+}
+
+/* meta section */
+
+.addon-meta {
+  margin-top: 4px;
+  border-top: 1px solid rgba(31, 41, 55, 0.9);
+  padding-top: 6px;
+  font-size: 11px;
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.addon-meta-row {
+  display: flex;
+  gap: 4px;
+}
+
+.addon-meta-label {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.addon-meta-value {
+  opacity: 0.9;
+}
+
+.addon-status-available {
+  background: rgba(148, 163, 184, 0.2);
+  color: #e5e7eb;
+}
+
+.addon-status-installed {
+  background: rgba(59, 130, 246, 0.25);
+  color: #bfdbfe;
+}
+
+.addon-status-ready {
+  background: rgba(34, 197, 94, 0.25);
+  color: #bbf7d0;
+}
+
+.addon-status-error {
+  background: rgba(248, 113, 113, 0.25);
+  color: #fecaca;
+}
+
+.addons-section-title {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.addon-card-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.addon-button {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+.addon-button-primary {
+  background: #22c55e;
+  color: #052e16;
+  border-color: #16a34a;
+}
+
+.addon-button-primary:hover {
+  background: #16a34a;
+}
+
+.addon-button-secondary {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.addon-button-secondary:hover {
+  background: rgba(59, 130, 246, 0.35);
+}
+
+.addon-button-ghost {
+  border-color: rgba(148, 163, 184, 0.5);
+}
+
+.addon-button-ghost:hover {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.addon-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.addon-card-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.addon-health-icon {
+  font-size: 16px;
+  cursor: default;
+}
+
+.addon-health-ok {
+  opacity: 0.9;
+}
+
+.addon-health-error {
+  color: #f97373; /* soft red */
+}
+
+.addon-health-unknown {
+  opacity: 0.6;
+}

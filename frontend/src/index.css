@@ -1,0 +1,36 @@
+/* src/index.css */
+
+/* Global + reset */
+@import "./styles/layout-base.css";
+
+/* Header */
+@import "./styles/layout-header.css";
+
+/* Sidebar */
+@import "./styles/layout-sidebar.css";
+
+/* Main content area */
+@import "./styles/layout-main.css";
+
+/* Footer */
+@import "./styles/layout-footer.css";
+
+/* Force-disable any injected overlays */
+[data-discover] {
+  pointer-events: none !important;
+}
+/* Make sure our sidebar and nav can receive events */
+.app-sidebar,
+.sidebar-nav {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 20;
+}
+
+/* Ensure our sidebar nav buttons are actually clickable */
+.sidebar-nav-button {
+  pointer-events: auto !important;
+  cursor: pointer;
+  position: relative;
+  z-index: 30;
+}

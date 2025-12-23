@@ -1,0 +1,22 @@
+{
+  "id": "hello-action",
+  "name": "Hello Action Runner",
+  "version": "0.1.0",
+  "description": "Demo action addon that can run simple tasks.",
+  "types": ["action"],
+  "frontend": {
+    "basePath": "/addons/hello-action",
+    "hasSettingsPage": true,
+    "showInSidebar": true,
+    "sidebarLabel": "Hello Action",
+    "showOnFrontpage": true,
+    "summaryComponent": "HelloActionSummary",
+    "summarySize": "sm"
+  },
+  "backend": {
+    "entry": "./backend/addon.py",
+    "setup": "./backend/setup.py",
+    "healthPath": "/health",
+    "requiresConfig": []
+  }
+}
