@@ -28,9 +28,25 @@ async def startup_event() -> None:
         # Perform store startup (may load catalog, etc.)
         startup_store()
 
+        # Periodic remote catalog refresh (best-effort)
+        try:
+            from .addons.store.service import start_catalog_refresh_task
+            start_catalog_refresh_task(app, interval_seconds=6 * 60 * 60)
+        except Exception:
+            pass
+
     except Exception:
         logger.exception("Application startup failed")
         raise
+
+
+@app.on_event("shutdown")
+async def shutdown_event() -> None:
+    try:
+        from .addons.store.service import stop_catalog_refresh_task
+        await stop_catalog_refresh_task(app)
+    except Exception:
+        pass
 
 
 @app.get("/api/health")

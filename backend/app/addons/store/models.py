@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import List, Optional
 from pydantic import BaseModel, HttpUrl, Field
+from pydantic.config import ConfigDict
 
 
 CATALOG_SCHEMA_V1 = "synthia.addons.catalog.v1"
@@ -25,17 +26,17 @@ class CatalogAddon(BaseModel):
         extra = "allow"
 
 
+
 class CatalogDocument(BaseModel):
-    schema_: str
+    model_config = ConfigDict(extra="allow", populate_by_name=True)
+
+    schema_: str = Field(alias="schema")
     generated_at: Optional[str] = None
     catalog_name: Optional[str] = None
     catalog_id: Optional[str] = None
     signature: Optional[dict] = None
 
     addons: List[CatalogAddon] = Field(default_factory=list)
-
-    class Config:
-        extra = "allow"
 
 
 # --- API response models (read-only store for now) ---
@@ -47,6 +48,7 @@ class StoreSource(BaseModel):
     enabled: bool = True
     error: Optional[str] = None
     addons_count: int = 0
+    generated_at: Optional[str] = None
 
 
 class StoreItem(BaseModel):
