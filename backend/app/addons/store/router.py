@@ -1,26 +1,14 @@
 from __future__ import annotations
 
-from fastapi import HTTPException
-
-from fastapi import APIRouter, Depends, Query
 from pathlib import Path
 
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
+
+from ..domain.models import AddonInstallResult
+from ..services.loader import load_backend_addon
+
 from .service import StoreService
-from .models import StoreItemResponse
-from .models import StoreResponse
-from .models import CatalogStatus
-
-from .models import StoreInstallRequest
-from ..models import AddonInstallResult
-
-
-from fastapi import Request
-from ...addons.loader import load_backend_addon
-
-from fastapi import APIRouter, Depends, Query, HTTPException, Request
-from ..loader import load_backend_addon
-
-from .models import StoreEntry
+from .models import StoreEntry, StoreResponse, StoreInstallRequest, CatalogStatus
 
 router = APIRouter()
 

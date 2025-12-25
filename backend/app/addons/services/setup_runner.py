@@ -1,5 +1,4 @@
 from __future__ import annotations
-from .frontend_linker import sync_frontend_addons
 
 import importlib.util
 import logging
@@ -10,11 +9,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, Any
 
-from .models import AddonManifest, AddonSetupResult
-from .registry import DEFAULT_ADDONS_DIR
-
 logger = logging.getLogger(__name__)
 
+from ..runtime.frontend_linker import sync_frontend_addons
+from ..domain.models import AddonManifest, AddonSetupResult
+from .registry import DEFAULT_ADDONS_DIR
 
 def _get_addon_dir(manifest: AddonManifest) -> Path:
     """

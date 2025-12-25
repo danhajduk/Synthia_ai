@@ -5,9 +5,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from ..installed_store import get_installed_addons
-from ..loader import get_loaded_backends, get_setup_results
-from ..models import AddonInstallResult
+from .installed_store import get_installed_addons
+from ..domain.models import AddonInstallResult
+
 from .installer import install_addon_from_repo
 from .models import (
     CATALOG_SCHEMA_V1,

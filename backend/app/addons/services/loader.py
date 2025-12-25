@@ -9,9 +9,9 @@ from typing import Dict
 
 from fastapi import FastAPI, APIRouter
 
-from .models import AddonManifest, AddonSetupResult
+from ..domain.models import AddonManifest, AddonSetupResult
 from .registry import list_addons, DEFAULT_ADDONS_DIR
-from .installed_store import get_installed_addons
+from ..store.installed_store import get_installed_addons
 from .setup_runner import run_addon_setup
 
 logger = logging.getLogger(__name__)

@@ -1,19 +1,18 @@
-# backend/app/addons/router.py
+# backend/app/addons/api/router.py
 from __future__ import annotations
 
 from typing import Optional, Literal
 
 from fastapi import APIRouter, HTTPException, UploadFile, File, Query, Request
-from .loader import load_backend_addons
+from ..services.loader import load_backend_addons
 
-from .models import AddonManifest, AddonInstallResult
-from .registry import get_registry, list_addons, get_addon
-from .install import install_addon_from_zip
-from .installed_store import mark_installed, mark_uninstalled
-from .runtime import get_addon_runtime_states, AddonRuntimeState
-from .setup_runner import run_addon_setup
+from ..services.registry import get_registry, list_addons, get_addon
+from ..services.install import install_addon_from_zip
+from ..store.installed_store import mark_installed, mark_uninstalled, get_installed_addons
+from ..runtime.runtime import get_addon_runtime_states, AddonRuntimeState
+from ..services.setup_runner import run_addon_setup
 
-from .models import (
+from ..domain.models import (
     AddonManifest,
     AddonInstallResult,
     FrontendRoutesResponse,
@@ -21,7 +20,6 @@ from .models import (
     FrontendHeaderWidget,
     FrontendSidebarItem,
 )
-from .registry import get_registry, list_addons, get_addon
 
 router = APIRouter(prefix="/api/addons", tags=["addons"])
 
@@ -215,7 +213,8 @@ def api_frontend_routes() -> FrontendRoutesResponse:
         sidebar=sidebar_items,
     )
 
-from .installed_store import get_installed_addons
+from app.addons.store.installed_store import get_installed_addons
+
 
 @router.get("/debug/installed-addons")
 def debug_installed_addons():

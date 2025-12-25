@@ -8,7 +8,7 @@ import tempfile
 from pathlib import Path
 from typing import Optional, Tuple
 
-from ..models import AddonManifest, AddonInstallResult, AddonSetupResult
+from ..domain.models import AddonManifest, AddonInstallResult, AddonSetupResult
 
 
 def _run(cmd: list[str], cwd: Optional[Path] = None) -> subprocess.CompletedProcess:

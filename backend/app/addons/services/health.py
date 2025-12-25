@@ -8,7 +8,7 @@ from typing import Dict, Optional, Literal
 
 import requests
 
-from .models import AddonManifest
+from ..domain.models import AddonManifest
 from .loader import get_loaded_backends
 
 logger = logging.getLogger(__name__)

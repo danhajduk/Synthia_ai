@@ -10,11 +10,9 @@ from typing import Tuple, Dict, Any
 from fastapi import UploadFile
 from pydantic import ValidationError
 
-from .models import AddonManifest, AddonInstallResult
+from ..domain.models import AddonManifest, AddonInstallResult
 from .registry import reload_registry, DEFAULT_ADDONS_DIR
-
-# ✅ ADD THIS IMPORT (adjust module path to wherever you put run_addon_setup)
-from .setup_runner import run_addon_setup  # e.g. backend/app/addons/setup.py
+from .setup_runner import run_addon_setup
 
 
 def _find_manifest(root: Path) -> Tuple[Path | None, Path | None]:

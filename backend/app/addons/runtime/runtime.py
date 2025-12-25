@@ -6,11 +6,11 @@ from typing import List, Literal, Optional
 
 from pydantic import BaseModel
 
-from .models import AddonManifest
-from .registry import list_addons
-from .installed_store import get_installed_addons
-from .loader import get_loaded_backends
-from .health import check_addon_health, HealthCacheEntry
+from ..domain.models import AddonManifest
+from ..services.registry import list_addons
+from ..store.installed_store import get_installed_addons
+from ..services.loader import get_loaded_backends
+from ..services.health import check_addon_health, HealthCacheEntry
 
 AddonLifecycleStatus = Literal["available", "installed", "ready", "error"]
 HealthStatus = Literal["unknown", "ok", "error"]

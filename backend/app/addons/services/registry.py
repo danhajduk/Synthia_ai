@@ -8,7 +8,7 @@ import logging
 
 from pydantic import BaseModel, ValidationError  # ✅ this was missing
 
-from .models import AddonManifest
+from ..domain.models import AddonManifest
 
 logger = logging.getLogger(__name__)
 
