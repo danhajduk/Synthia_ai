@@ -141,3 +141,281 @@ INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
 INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
 INFO:     127.0.0.1:37016 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
 INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:38110 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:42172 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:53502 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:35220 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:59194 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:33942 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:40194 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:34424 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:50462 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:52706 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:52756 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:60488 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:49534 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:58388 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:42780 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:49772 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:43338 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:34498 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:40154 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:38962 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:39268 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:38894 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:40128 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:51440 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:49808 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:50118 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:41446 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:44178 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:36708 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:56076 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:45892 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:49944 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:47554 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:52370 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:44794 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:58142 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:50536 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:56898 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:56352 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:36784 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:50484 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     127.0.0.1:60328 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:44126 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:53718 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:57836 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:41518 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     127.0.0.1:48458 - "GET /api/addons/visuals/status HTTP/1.1" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/health HTTP/1.0" 200 OK
+INFO:     10.0.0.234:0 - "GET /api/addons/registry/_errors HTTP/1.0" 404 Not Found
+INFO:     10.0.0.234:0 - "GET /api/addons/status HTTP/1.0" 200 OK
