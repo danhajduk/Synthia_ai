@@ -24,7 +24,7 @@ class AddonRegistry(BaseModel):
 
 
 # You can wire this from settings or env
-DEFAULT_ADDONS_DIR = Path(__file__).resolve().parents[3] / "addons"
+DEFAULT_ADDONS_DIR = Path(__file__).resolve().parents[4] / "addons"
 
 # Internal mutable registry (hot-reloadable)
 _registry: AddonRegistry | None = None

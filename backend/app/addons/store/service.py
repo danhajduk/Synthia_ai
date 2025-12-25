@@ -53,7 +53,7 @@ class StoreService:
         # NOTE: if you switch CatalogDocument to schema_ (Field(alias="schema")),
         # update this to: if doc.schema_ != CATALOG_SCHEMA_V1:
         if doc.schema != CATALOG_SCHEMA_V1:
-            raise CatalogLoadError(f"Unsupported catalog schema: {doc.schema}")
+            raise CatalogLoadError(f"Unsupported catalog schema: {doc.schema_}")
 
         seen = set()
         normalized: Dict[str, CatalogAddon] = {}
@@ -123,6 +123,7 @@ class StoreService:
         )
 
     def get_store(self, q: Optional[str] = None) -> StoreResponse:
+        from ..services.loader import get_loaded_backends, get_setup_results
         addons: List[CatalogAddon] = list(self._addons_by_id.values())
 
         if q:
@@ -181,6 +182,7 @@ class StoreService:
         """
         Return a single lifecycle-aware store entry (not just raw catalog info).
         """
+        from ..services.loader import get_loaded_backends, get_setup_results
         addon = self._addons_by_id.get(addon_id)
         if not addon:
             raise KeyError(addon_id)
@@ -238,3 +240,12 @@ class StoreService:
             core_root=core_root,
             force=force,
         )
+def startup_store() -> None:
+    """
+    Called from app startup.
+    Loads the local catalog into memory (best-effort).
+    """
+    # Lazy import avoids any router/service circular import surprises.
+    from .router import get_store_service
+
+    get_store_service().startup_load()

@@ -1,24 +1,6 @@
 INFO:     Will watch for changes in these directories: ['/home/dan/Projects/Synthia/backend']
 INFO:     Uvicorn running on http://0.0.0.0:9001 (Press CTRL+C to quit)
-INFO:     Started reloader process [1513165] using WatchFiles
-INFO:     Started server process [1513168]
+INFO:     Started reloader process [1515038] using WatchFiles
+INFO:     Started server process [1515041]
 INFO:     Waiting for application startup.
-/home/dan/Projects/Synthia/backend/app/addons/domain/models.py:33: UserWarning: Field name "schema" in "CatalogDocument" shadows an attribute in parent "BaseModel"
-  class CatalogDocument(BaseModel):
-/home/dan/Projects/Synthia/backend/app/addons/domain/models.py:137: UserWarning: Field name "schema" in "AddonManifest" shadows an attribute in parent "BaseModel"
-  class AddonManifest(BaseModel):
-/home/dan/Projects/Synthia/backend/app/addons/store/models.py:28: UserWarning: Field name "schema" in "CatalogDocument" shadows an attribute in parent "BaseModel"
-  class CatalogDocument(BaseModel):
-ERROR:    Traceback (most recent call last):
-  File "/home/dan/Projects/Synthia/.venv/lib/python3.11/site-packages/starlette/routing.py", line 694, in lifespan
-    async with self.lifespan_context(app) as maybe_state:
-  File "/home/dan/Projects/Synthia/.venv/lib/python3.11/site-packages/starlette/routing.py", line 571, in __aenter__
-    await self._router.startup()
-  File "/home/dan/Projects/Synthia/.venv/lib/python3.11/site-packages/starlette/routing.py", line 671, in startup
-    await handler()
-  File "/home/dan/Projects/Synthia/backend/app/main.py", line 11, in startup_event
-    from .addons.store.service import startup_store
-ImportError: cannot import name 'startup_store' from 'app.addons.store.service' (/home/dan/Projects/Synthia/backend/app/addons/store/service.py)
-
-ERROR:    Application startup failed. Exiting.
-INFO:     Stopping reloader process [1513165]
+INFO:     Application startup complete.

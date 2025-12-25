@@ -4,7 +4,7 @@ from __future__ import annotations
 from enum import Enum
 from typing import List, Optional, Literal  # 🔹 added Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 CATALOG_SCHEMA_V1 = "synthia.addons.catalog.v1"
@@ -31,7 +31,14 @@ class CatalogAddon(BaseModel):
 
 
 class CatalogDocument(BaseModel):
-    schema: Literal["synthia.addons.catalog.v1"]
+    model_config = ConfigDict(
+        populate_by_name=True,
+        extra="allow",
+    )
+
+    schema_: Literal["synthia.addons.catalog.v1"] = Field(
+        alias="schema"
+    )
 
     generated_at: Optional[str] = None
     catalog_name: Optional[str] = None
@@ -39,9 +46,6 @@ class CatalogDocument(BaseModel):
     signature: Optional[dict] = None
 
     addons: List[CatalogAddon]
-
-    class Config:
-        extra = "allow"
 
 # -----------------------------
 # Enums
@@ -142,7 +146,7 @@ class AddonManifest(BaseModel):
     """
 
     # (Optional but recommended) Manifest schema identifier
-    schema: Optional[str] = None  # e.g. "synthia.addon.manifest.v1"
+    schema_: Optional[str] = None  # e.g. "synthia.addon.manifest.v1"
 
     id: str
     name: str

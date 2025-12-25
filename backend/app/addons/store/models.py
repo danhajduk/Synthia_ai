@@ -26,7 +26,7 @@ class CatalogAddon(BaseModel):
 
 
 class CatalogDocument(BaseModel):
-    schema: str
+    schema_: str
     generated_at: Optional[str] = None
     catalog_name: Optional[str] = None
     catalog_id: Optional[str] = None
