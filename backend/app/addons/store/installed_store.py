@@ -5,7 +5,7 @@ from typing import List
 
 
 def _core_root() -> Path:
-    return Path(__file__).resolve().parents[3]  # -> /home/dan/Projects/Synthia
+    return Path(__file__).resolve().parents[4]  # -> /home/dan/Projects/Synthia
 
 
 def get_installed_addons() -> List[str]:

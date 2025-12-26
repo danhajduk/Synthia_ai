@@ -58,6 +58,10 @@ This file focuses on **Addon Store / Catalog** work. It reflects what’s alread
   - [x] periodic refresh (e.g., every 6 hours)
   - [x] cache “last-good” copy on disk (per-catalog)
   - [x] use per-catalog `ETag/If-Modified-Since` if you want to get fancy (optional)
+- [x] Implement merged store view:
+  - [x] `GET /api/addons/store` returns `sources[]` + merged addon list
+  - [x] collision rules (addon id exists in multiple catalogs):
+    - recommend: prefer **trusted** sources, else newest `generated_at`, else deterministic tie-breaker
 
 ## Gaps / limitations discovered (aka “why it feels unfinished”)
 
@@ -83,12 +87,6 @@ This file focuses on **Addon Store / Catalog** work. It reflects what’s alread
 ---
 
 ## Updated TODO — Addon Store Roadmap
-
-### Phase 1 — Make “catalog source” real (still no UI)
-- [ ] Implement merged store view:
-  - [ ] `GET /api/addons/store` returns `sources[]` + merged addon list
-  - [ ] collision rules (addon id exists in multiple catalogs):
-    - recommend: prefer **trusted** sources, else newest `generated_at`, else deterministic tie-breaker
 
 ### Phase 2 — Install metadata + update detection
 - [ ] Add install metadata persistence per addon:

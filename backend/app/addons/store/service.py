@@ -129,7 +129,7 @@ class StoreService:
         installed = get_installed_addons()
 
         try:
-            loaded_backends = set(get_loaded_backends())
+            loaded_backends = _read_loaded_backends_marker(core_root)
         except Exception:
             loaded_backends = set()
 
@@ -167,7 +167,7 @@ class StoreService:
         installed = get_installed_addons()
 
         try:
-            loaded_backends = set(get_loaded_backends())
+            loaded_backends = _read_loaded_backends_marker(core_root)
         except Exception:
             loaded_backends = set()
 

@@ -1,34 +1,23 @@
-from __future__ import annotations
-
+import json
 from pathlib import Path
-from typing import List
-
 
 def _core_root() -> Path:
-    return Path(__file__).resolve().parents[3]  # -> /home/dan/Projects/Synthia
+    # loader.py lives at: <core>/backend/app/addons/services/loader.py
+    return Path(__file__).resolve().parents[4]
 
+def _loaded_backends_path() -> Path:
+    return _core_root() / "data" / "addons" / ".loaded_backends.json"
 
-def get_installed_addons() -> List[str]:
-    """
-    Installed addons are those present on disk in: <core>/data/addons/<addon-id>/
-    """
-    install_dir = _core_root() / "data" / "addons"
-    if not install_dir.exists():
-        return []
-    return sorted([p.name for p in install_dir.iterdir() if p.is_dir()])
+def _mark_backend_loaded(addon_id: str) -> None:
+    p = _loaded_backends_path()
+    p.parent.mkdir(parents=True, exist_ok=True)
 
+    loaded = set()
+    if p.exists():
+        try:
+            loaded = set(json.loads(p.read_text(encoding="utf-8")))
+        except Exception:
+            loaded = set()
 
-def mark_installed(addon_id: str) -> None:
-    """
-    No-op for now. Disk presence is the source of truth.
-    Kept for API compatibility.
-    """
-    return
-
-
-def mark_uninstalled(addon_id: str) -> None:
-    """
-    No-op for now. Disk presence is the source of truth.
-    Kept for API compatibility.
-    """
-    return
+    loaded.add(addon_id)
+    p.write_text(json.dumps(sorted(loaded), indent=2), encoding="utf-8")

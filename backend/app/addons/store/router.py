@@ -71,31 +71,46 @@ def reload_catalog(svc: StoreService = Depends(get_store_service)) -> CatalogSta
 
 
 @router.post("/store/install", response_model=AddonInstallResult)
-def install_from_store(self, addon_id: str, force: bool = False) -> AddonInstallResult:
-    core_root = Path(__file__).resolve().parents[4]
+def install_from_store(
+    req: StoreInstallRequest,
+    request: Request,
+    svc: StoreService = Depends(get_store_service),
+) -> AddonInstallResult:
+    # 1) Install (merged store winner)
+    result = svc.install_from_store(addon_id=req.addon_id, force=req.force)
 
-    # Install should follow the merged store winner (same view the UI sees)
+    # If install failed, return as-is
+    if getattr(result, "status", None) != "installed":
+        return result
+
+    addon_id = req.addon_id
+
+    # 2) Load backend immediately (best-effort)
     try:
-        _sources, chosen = self._build_merged_view(core_root)
-        if addon_id not in chosen:
-            return AddonInstallResult(status="failed", errors=[f"Addon not found in store: {addon_id}"])
-        _src, item = chosen[addon_id]
+        manifest = result.manifest
+
+        loaded = getattr(request.app.state, "loaded_addon_backends", None)
+        if loaded is None:
+            loaded = set()
+            request.app.state.loaded_addon_backends = loaded
+
+        if addon_id not in loaded:
+            # IMPORTANT: loader expects FastAPI app as first argument
+            load_backend_addon(request.app, manifest)
+            loaded.add(addon_id)
+
+        # Remove the restart warning if present
+        if getattr(result, "warnings", None):
+            result.warnings = [w for w in result.warnings if "restart" not in w.lower()]
+
     except Exception as e:
-        return AddonInstallResult(status="failed", errors=[f"Failed to resolve addon from merged store: {e}"])
+        if getattr(result, "warnings", None) is None:
+            result.warnings = []
+        result.warnings.append(f"Installed, but failed to load backend at runtime: {e}")
 
-    return install_addon_from_repo(
-        addon_id=addon_id,
-        repo=str(item.repo),
-        ref=item.ref or "main",
-        path_in_repo=item.path or ".",
-        core_root=core_root,
-        force=force,
-    )
+    return result
 
 
-# ----------------------------
-# Catalog Sources (NEW: Phase 1 steps 1/2)
-# ----------------------------
 
 @router.get("/catalogs", response_model=CatalogSourcesConfig)
 def list_catalog_sources(io: CatalogSourcesIO = Depends(get_catalog_sources_io)) -> CatalogSourcesConfig:

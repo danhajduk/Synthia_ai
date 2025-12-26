@@ -128,3 +128,12 @@ def list_errors() -> List[AddonLoadError]:
     to _LOAD_ERRORS in `load_addon_registry()`.
     """
     return list(_LOAD_ERRORS)
+
+def _read_loaded_backends_marker(core_root: Path) -> set[str]:
+    p = core_root / "data" / "addons" / ".loaded_backends.json"
+    if not p.exists():
+        return set()
+    try:
+        return set(json.loads(p.read_text(encoding="utf-8")))
+    except Exception:
+        return set()
