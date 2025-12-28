@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import logging
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -11,6 +12,9 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 import threading
+
+# Store-wide logger
+logger = logging.getLogger("synthia.store")
 
 CATALOG_SOURCES_LOCK = threading.Lock()
 
@@ -92,6 +96,7 @@ class CatalogSourcesIO:
         self.core_root = core_root or _core_root()
         self.catalogs_path = self.core_root / "data" / "addons" / "catalogs.json"
         self.catalogs_path.parent.mkdir(parents=True, exist_ok=True)
+        logger.info(f"CatalogSourcesIO initialized, catalogs_path={self.catalogs_path}")
 
     def _default_config(self) -> CatalogSourcesConfig:
         # Keep the current dev catalog experience alive as a default local source.
@@ -115,20 +120,24 @@ class CatalogSourcesIO:
         )
 
     def load(self) -> CatalogSourcesConfig:
+        logger.debug(f"Loading catalogs from {self.catalogs_path}")
         with CATALOG_SOURCES_LOCK:
             if not self.catalogs_path.exists():
                 cfg = self._default_config()
                 self.save(cfg)
+                logger.info(f"Created default catalogs config at {self.catalogs_path}")
                 return cfg
 
             try:
                 raw = json.loads(self.catalogs_path.read_text(encoding="utf-8"))
                 return CatalogSourcesConfig.parse_obj(raw)
             except Exception as e:
+                logger.error(f"Failed to load catalogs config: {e}")
                 raise RuntimeError(f"Failed to load catalogs config: {e}")
 
     def save(self, cfg: CatalogSourcesConfig) -> None:
         with CATALOG_SOURCES_LOCK:
+            logger.debug(f"Saving catalogs config to {self.catalogs_path}")
             tmp = self.catalogs_path.with_suffix(".json.tmp")
             tmp.write_text(cfg.model_dump_json(indent=2), encoding="utf-8")
             tmp.replace(self.catalogs_path)
@@ -140,6 +149,7 @@ class CatalogSourcesIO:
 
         # relative paths are interpreted from core root
         resolved = (self.core_root / path_str).resolve()
+        logger.debug(f"Resolved local catalog path: {path_str} -> {resolved}")
         # guard: prevent traversal outside core root for relative inputs
         core = self.core_root.resolve()
         if core not in resolved.parents and resolved != core:
@@ -185,6 +195,7 @@ class CatalogSourcesIO:
             trusted=req.trusted,
         )
         self.validate_new_source(req)
+        logger.info(f"Adding catalog source: id={source.id} name={name} type={req.type}")
         cfg.sources.append(source)
         self.save(cfg)
         return source
@@ -208,6 +219,7 @@ class CatalogSourcesIO:
                 updated.updated_at = _utcnow_iso()
                 cfg.sources[i] = updated
                 self.save(cfg)
+                logger.info(f"Updated catalog source: id={source_id}")
                 return updated
         raise KeyError(source_id)
 
@@ -222,6 +234,7 @@ class CatalogSourcesIO:
                 updated.updated_at = _utcnow_iso()
                 cfg.sources[i] = updated
                 self.save(cfg)
+                logger.debug(f"Set runtime for source {source_id}: last_loaded_at={last_loaded_at} last_error={last_error}")
                 return updated
         raise KeyError(source_id)
 
@@ -233,3 +246,4 @@ class CatalogSourcesIO:
         if len(cfg.sources) == before:
             raise KeyError(source_id)
         self.save(cfg)
+        logger.info(f"Deleted catalog source: id={source_id}")

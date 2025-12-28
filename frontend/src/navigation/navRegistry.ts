@@ -1,22 +1,22 @@
 // src/navigation/navRegistry.ts
 import type { NavItem } from "../components/navigation/SidebarNav";
 
-export type RegisteredAddon = {
-  id: string;
-  name: string;
-  basePath: string; // e.g. "/addons/hello-llm"
+export type SidebarRouteItem = {
+  addon_id: string;
+  label: string;
+  path: string;
 };
 
-export function buildNav(registeredAddons: RegisteredAddon[]): NavItem[] {
+export function buildNavFromSidebarRoutes(sidebarItems: SidebarRouteItem[]): NavItem[] {
   const coreItems: NavItem[] = [
     { id: "home", label: "Home", path: "/" },
     { id: "addons", label: "Addons", path: "/addons" },
   ];
 
-  const addonItems: NavItem[] = registeredAddons.map((addon) => ({
-    id: `addon-${addon.id}`,
-    label: addon.name,
-    path: addon.basePath,
+  const addonItems: NavItem[] = sidebarItems.map((item) => ({
+    id: `addon-${item.addon_id}`,
+    label: item.label,
+    path: item.path,
   }));
 
   const tailItems: NavItem[] = [

@@ -12,6 +12,11 @@ export type AddonHealthSnapshot = {
   error_message: string | null;
 };
 
+export type AddonLoadError = {
+  addon_path: string;
+  error: string;
+};
+
 export type AddonManifest = {
   id: string;
   name: string;

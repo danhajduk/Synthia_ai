@@ -4,13 +4,16 @@ from pathlib import Path
 from typing import Dict, List
 
 import json
+import json
+from pathlib import Path
 import logging
 
-from pydantic import BaseModel, ValidationError  # ✅ this was missing
+logger = logging.getLogger("synthia.addons.registry")
+
+from pydantic import BaseModel, ValidationError  
 
 from ..domain.models import AddonManifest
 
-logger = logging.getLogger(__name__)
 
 
 class AddonLoadError(BaseModel):
@@ -130,10 +133,18 @@ def list_errors() -> List[AddonLoadError]:
     return list(_LOAD_ERRORS)
 
 def _read_loaded_backends_marker(core_root: Path) -> set[str]:
-    p = core_root / "data" / "addons" / ".loaded_backends.json"
+    p = core_root / "data" / "addons" / "loaded_backends.json"  # marker written at startup
     if not p.exists():
         return set()
     try:
         return set(json.loads(p.read_text(encoding="utf-8")))
     except Exception:
         return set()
+
+def write_loaded_backends_marker(core_root: Path, loaded_ids: set[str]) -> None:
+    data_dir = core_root / "data" / "addons"
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    marker = data_dir / "loaded_backends.json"
+    marker.write_text(json.dumps(sorted(loaded_ids), indent=2), encoding="utf-8")
+    logger.info("Wrote loaded_backends marker: %s (%d addons)", marker, len(loaded_ids))

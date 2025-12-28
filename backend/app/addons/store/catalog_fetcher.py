@@ -1,4 +1,8 @@
 from __future__ import annotations
+import logging
+
+# Use the unified installer logger name for store-related logging
+logger = logging.getLogger("synthia.store.fetcher")
 
 import json
 import urllib.request
@@ -30,6 +34,7 @@ class CatalogFetcher:
         self.io = io
         self.cache_dir = self.io.core_root / "data" / "addons" / "catalog_cache"
         self.cache_dir.mkdir(parents=True, exist_ok=True)
+        logger.info(f"CatalogFetcher initialized, cache_dir={self.cache_dir}")
 
     def _cache_json_path(self, catalog_id: str) -> Path:
         return self.cache_dir / f"{catalog_id}.json"
@@ -65,6 +70,8 @@ class CatalogFetcher:
             raise ValueError(f"Unsupported catalog schema: {getattr(doc, 'schema_', None)}")
 
     def fetch_one(self, source: CatalogSource) -> FetchResult:
+        logger.info(f"Fetching catalog source: {source.id} ({source.type})")
+        logger.debug(f"Fetching catalog source (debug): id={source.id} type={source.type}")
         if source.type != "remote" or source.url is None:
             return FetchResult(ok=True, changed=False, status_code=0)
 
@@ -82,6 +89,7 @@ class CatalogFetcher:
         req = urllib.request.Request(str(source.url), headers=headers, method="GET")
 
         try:
+            logger.debug(f"Making HTTP request for catalog {source.id} to {source.url}")
             with urllib.request.urlopen(req, timeout=20) as resp:
                 status = getattr(resp, "status", 200)  # py<3.9 compat
                 if status == 304:
@@ -105,14 +113,17 @@ class CatalogFetcher:
 
                 return FetchResult(ok=True, changed=True, status_code=status)
         except urllib.error.HTTPError as e:
+            logger.error(f"HTTP error fetching catalog {source.id} from {source.url}: {e}")
             if e.code == 304:
                 return FetchResult(ok=True, changed=False, status_code=304)
             return FetchResult(ok=False, status_code=e.code, error=str(e))
         except Exception as e:
+            logger.error(f"Error fetching catalog {source.id} from {source.url}: {e}")
             return FetchResult(ok=False, status_code=0, error=str(e))
 
     def fetch_enabled(self) -> None:
         """Fetch all enabled remote sources. Updates last_loaded_at/last_error per source."""
+        logger.info("Starting fetch of enabled remote catalog sources")
         cfg = self.io.load()
         for s in cfg.sources:
             if not s.enabled:

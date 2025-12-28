@@ -31,3 +31,7 @@ scripts/
 
 # --- Generated frontend addon code ---
 /frontend/src/addons/*
+
+# Logs
+logs/
+*.log

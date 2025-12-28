@@ -122,35 +122,45 @@ export const AddonsRegistryPage: React.FC = () => {
   const availableAddons = addons.filter((a) => a.lifecycle === "available");
   const activeAddons = addons.filter((a) => a.lifecycle !== "available");
 
-  async function handleInstall(addon: AddonRuntimeState) {
-    try {
-      const res = await fetch(`/api/addons/install/${addon.id}`, {
-        method: "POST",
-      });
-      if (!res.ok) {
-        console.error("Failed to install addon", addon.id, res.status);
-        return;
-      }
-      await refresh();
-    } catch (err) {
-      console.error("Error installing addon", addon.id, err);
-    }
-  }
+async function handleInstall(addon: AddonRuntimeState) {
+  try {
+    const res = await fetch(`/api/addons/store/install`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ addon_id: addon.id, force: true }), // force optional
+    });
 
-  async function handleUninstall(addon: AddonRuntimeState) {
-    try {
-      const res = await fetch(`/api/addons/uninstall/${addon.id}`, {
-        method: "POST",
-      });
-      if (!res.ok) {
-        console.error("Failed to uninstall addon", addon.id, res.status);
-        return;
-      }
-      await refresh();
-    } catch (err) {
-      console.error("Error uninstalling addon", addon.id, err);
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      console.error("Failed to install addon", addon.id, res.status, text);
+      return;
     }
+
+    await refresh();
+  } catch (err) {
+    console.error("Error installing addon", addon.id, err);
   }
+}
+
+async function handleUninstall(addon: AddonRuntimeState) {
+  try {
+    const res = await fetch(`/api/addons/store/uninstall`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ addon_id: addon.id, remove_files: true }), // or false for "disable"
+    });
+
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      console.error("Failed to uninstall addon", addon.id, res.status, text);
+      return;
+    }
+
+    await refresh();
+  } catch (err) {
+    console.error("Error uninstalling addon", addon.id, err);
+  }
+}
 
   function handleOpen(addon: AddonRuntimeState) {
     const frontend = addon.manifest.frontend;
@@ -275,7 +285,6 @@ export const AddonsRegistryPage: React.FC = () => {
           <div className="addons-grid">
             {activeAddons.map((runtime) => {
               const { manifest, lifecycle, health } = runtime;
-              const backend = manifest.backend;
               const frontend = manifest.frontend;
               const setupResult: any = (runtime as any).setup_result;
 

@@ -65,6 +65,10 @@ This file focuses on **Addon Store / Catalog** work. It reflects what’s alread
 
 ## Gaps / limitations discovered (aka “why it feels unfinished”)
 
+Cache health probes
+Don’t hit /status on every /store call.
+Cache per-addon health for ~10–30s.
+
 - [ ] **Catalogs are not actually a “store” yet**:
   - Only a single local file (`dev_catalog.json`) is supported.
   - No remote fetch, no caching, no periodic refresh, no multiple catalogs.

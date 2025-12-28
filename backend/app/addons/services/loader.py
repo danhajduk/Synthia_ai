@@ -230,7 +230,11 @@ def load_backend_addons(app: FastAPI) -> None:
                 continue
 
             prefix = f"/api/addons/{manifest.id}"
-            app.include_router(router, prefix=prefix)
+            app.include_router(
+                router,
+                prefix=prefix,
+                tags=[f"addon:{manifest.id}"],
+            )
 
             _LOADED_BACKENDS[manifest.id] = LoadedBackendAddon(
                 id=manifest.id,
@@ -269,3 +273,11 @@ def get_setup_results() -> Dict[str, AddonSetupResult]:
     - expose setup stdout/stderr/exit_code to the UI
     """
     return dict(_SETUP_RESULTS)
+
+def unload_backend_addon(addon_id: str) -> None:
+    """
+    Best-effort: remove addon from in-process loaded map so status flips immediately.
+    NOTE: FastAPI cannot reliably unmount routes at runtime; this is a state fix for UI/lifecycle.
+    """
+    _LOADED_BACKENDS.pop(addon_id, None)
+    _SETUP_RESULTS.pop(addon_id, None)  # optional, if you want to clear setup status too

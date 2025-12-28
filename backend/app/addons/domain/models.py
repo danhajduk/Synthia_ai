@@ -190,9 +190,9 @@ class AddonManifest(BaseModel):
 # -----------------------------
 
 class AddonInstallResult(BaseModel):
-    status: Literal["installed", "failed"]
+    # Accept 'uninstalled' here because the uninstall flow returns that status.
+    status: Literal["installed", "failed", "uninstalled"]
     manifest: Optional[AddonManifest] = None
-    errors: List[str] = Field(default_factory=list)
     warnings: List[str] = Field(default_factory=list)
 
 
